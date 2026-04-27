@@ -1,0 +1,808 @@
+/* ------- Osmo [https://osmo.supply/] ------- */
+/* Osmo UI: https://slater.app/10324/23333.css */
+
+/* ============================================
+   CASA DONER - MEDITERRANEAN RESTAURANT
+   Main Stylesheet
+   
+   TABLE OF CONTENTS:
+   1. CSS Variables (Colors, Fonts, Spacing)
+   2. Reset & Base Styles
+   3. Typography
+   4. Layout & Container
+   5. Buttons
+   6. Navigation
+   7. Hero Section
+   8. About Section
+   9. Specialties Section
+   10. Favorites Section
+   11. Reviews Section
+   12. Social Media Section
+   13. Catering Section
+   14. Footer
+   15. Toast Notifications
+   16. Animations
+   17. Responsive Design (Mobile)
+   ============================================ */
+
+/* ============================================
+   1. CSS VARIABLES
+   Define all colors, fonts, and spacing here
+   Easy to customize - just change these values!
+   ============================================ */
+   :root {
+    /* ------------------------------------------
+       COLOR PALETTE
+       Warm, appetizing Mediterranean colors
+       ------------------------------------------ */
+    
+    /* Primary Color - Burnt Orange (main brand color) */
+    --primary: #e07b39;           /* Main orange */
+    --primary-light: #f09454;     /* Lighter orange for hover */
+    --primary-dark: #c4652a;      /* Darker orange for active */
+    
+    /* Secondary Color - Deep Brown (for contrast) */
+    --secondary: #4a3228;         /* Dark warm brown */
+    --secondary-light: #5e4438;   /* Lighter brown */
+    
+    /* Accent Color - Tangerine (for highlights) */
+    --accent: #f5a623;            /* Warm tangerine/gold */
+    
+    /* Background Colors */
+    --bg-cream: #faf8f5;          /* Main background - warm cream */
+    --bg-light: #fefdfb;          /* Lighter sections */
+    --bg-warm: #f5f0e8;           /* Warm beige for alternating sections */
+    
+    /* Text Colors */
+    --text-dark: #2d1f1a;         /* Main text - dark brown */
+    --text-medium: #5a4a42;       /* Secondary text */
+    --text-light: #8b7b73;        /* Muted/placeholder text */
+    --text-white: #fefdfb;        /* White text on dark backgrounds */
+    
+    /* Border & Divider Colors */
+    --border: #e8e0d8;            /* Light borders */
+    --border-dark: #d4c8bc;       /* Darker borders */
+    
+    /* Status Colors */
+    --success: #4caf50;           /* Green for success */
+    --error: #f44336;             /* Red for errors */
+    
+    /* ------------------------------------------
+       TYPOGRAPHY
+       ------------------------------------------ */
+    --font-heading: 'Playfair Display', serif;  /* Elegant serif for headings */
+    --font-body: 'Nunito', sans-serif;          /* Clean sans-serif for body */
+    
+    /* ------------------------------------------
+       SPACING
+       Consistent spacing throughout the site
+       ------------------------------------------ */
+    --spacing-xs: 0.5rem;    /* 8px */
+    --spacing-sm: 1rem;      /* 16px */
+    --spacing-md: 1.5rem;    /* 24px */
+    --spacing-lg: 2rem;      /* 32px */
+    --spacing-xl: 3rem;      /* 48px */
+    --spacing-2xl: 4rem;     /* 64px */
+    --spacing-3xl: 6rem;     /* 96px */
+    
+    /* ------------------------------------------
+       BORDER RADIUS
+       ------------------------------------------ */
+    --radius-sm: 0.375rem;   /* 6px */
+    --radius-md: 0.75rem;    /* 12px */
+    --radius-lg: 1rem;       /* 16px */
+    --radius-xl: 1.5rem;     /* 24px */
+    --radius-full: 9999px;   /* Full circle/pill */
+    
+    /* ------------------------------------------
+       SHADOWS
+       ------------------------------------------ */
+    --shadow-soft: 0 4px 20px -4px rgba(45, 31, 26, 0.08);
+    --shadow-medium: 0 8px 30px -8px rgba(45, 31, 26, 0.12);
+    --shadow-elevated: 0 20px 50px -15px rgba(45, 31, 26, 0.18);
+    --shadow-glow: 0 0 40px rgba(224, 123, 57, 0.25);
+    
+    /* ------------------------------------------
+       TRANSITIONS
+       ------------------------------------------ */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: PP Neue Montreal, Arial, sans-serif;
+    color: #201d1d;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    min-height: 100%;
+   
+  }
+  
+  a,
+  button {
+    cursor: url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg")
+        12 0,
+      pointer;
+  }
+  
+  /* Disable Scroll on Loading */
+  main:has(.willem-header.is--loading) {
+    height: 100dvh;
+  }
+
+
+
+  
+.noFlex{
+  display: flex;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+.container1{
+  padding: 75px 0;
+  margin: 0 auto;
+
+  width: 95%;
+  max-width: 1440px;
+
+  display: grid;
+
+  /* optional but helpful */
+  box-sizing: border-box;
+}
+
+
+h1{
+  position: relative;
+  font-size: 44px;
+  text-transform: uppercase;
+  color: #424242;
+}
+
+.gallery-wrap {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+.item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: flex 0.8s ease;
+  position: relative;      /* anchors overlay */
+  overflow: hidden;        /* keeps overlay clipped */
+}
+
+
+/* overlay sits on top but doesn't affect layout */
+.itemOverlay {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.8)
+  );
+
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+
+  pointer-events: none; /* optional: prevents hover weirdness */
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMPORTANT: trigger from the .item hover (not overlay hover) */
+.item:hover .itemOverlay {
+  opacity: 1;
+}
+/* h3 hidden initially */
+.itemOverlay h3 {
+color: white;
+font-size: 3rem;
+font-weight: 600;
+padding-left: 10%;
+
+opacity: 0;
+transform: translateY(10px);
+
+transition:
+  opacity 0.25s ease,
+  transform 0.25s ease;
+transition-delay: 0s;
+}
+
+/* h3 appears AFTER a short delay */
+.item:hover .itemOverlay h3 {
+opacity: 1;
+transform: translateY(0);
+transition-delay: 0.2s;
+}
+
+/* h3 disappears immediately on hover out */
+.item:not(:hover) .itemOverlay h3 {
+transition-delay: 0s;
+}
+
+
+
+.itemOverlay p {
+color: white;
+font-size: 1.5rem;
+font-weight: 300;
+max-width: 35rem;
+padding-left: 10%;
+opacity: 0;
+transform: translateY(10px);
+
+transition:
+opacity 0.25s ease,
+transform 0.25s ease;
+transition-delay: 0s;
+}
+
+/* hover IN → delayed reveal */
+.item:hover .itemOverlay p {
+opacity: 1;
+transform: translateY(0);
+transition-delay: 0.6s; /* matches flex expand */
+}
+
+/* hover OUT → instant hide */
+.item:not(:hover) .itemOverlay p {
+transition-delay: 0s;
+}
+
+
+
+
+
+
+.item-1 { 
+  background-image: url(img/Fav10.jpg);
+}
+
+.item-2 { 
+  background-image: url(img/Fav6.jpg);
+}
+
+.item-3 { 
+  background-image: url(img/Fav1.jpg);
+ 
+}
+
+.item-4 { 
+  background-image: url(img/Fav3.jpg);
+}
+
+.item-5 { 
+  background-image: url(img/fav7.jpg);
+}
+
+
+
+.social{
+  position: absolute;
+  right: 35px;
+  bottom: 0;
+  
+  img{
+    display: block;
+    width: 32px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .osmo-credits__p {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://cdn.prod.website-files.com/6819ed8312518f61b84824df/6819ed8312518f61b84825ba_PPNeueMontreal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+* ==========================================================
+* Imported styles from styles2.css
+* The following selectors were originally defined in the
+* separate styles2.css file. They are now consolidated here
+* so that styles2.css can be removed from the project.
+* ==========================================================
+*/
+
+/* Hero subtitle styling */
+
+
+
+  .CASA {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    gap: 1rem; /* optional spacing */
+  }
+  
+  .hero-info{
+    font-size: 0.6rem;
+    font-weight: 100;
+  }
+
+  .willem-header {
+    color: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+
+  }
+
+
+/* Container for hero info cards */
+.hero-info-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--spacing-sm);
+  max-width: 30rem;
+  width: 100%;
+  padding: 0 0 1.3rem 0;
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hero-info-container1 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--spacing-sm);
+  max-width: 30rem;
+  width: 100%;
+  padding: 0 0 1.3rem 0;
+}
+
+.hero-info{
+  display: flex;
+  color: #f4f4f4;
+  font-size: 1rem;
+  font-weight: 200; 
+}
+
+/* Info card styling */
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: rgb(196, 101, 42, 0.742);
+  border: 1px solid rgb(198, 99, 12);
+  border-radius: 50px;
+  padding: 1rem;
+  transition: 0.2s;
+}
+
+
+.info-card:hover {
+  display: flex;
+  background-color: rgba(74, 50, 40, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(-0.3rem);
+}
+
+/* Icon inside info card */
+
+
+/* Text inside info card */
+.info-card span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.4rem;
+}
+
+  .titleContainerSmall{
+    padding-top: 4rem; display: flex; gap: 0.5rem;
+  }
+  
+  /* Loading: Hidden */
+  .willem-header.is--loading.is--hidden {
+    display: none;
+  }
+  
+  
+
+
+
+  .willem__size1{
+    font-size: 9.5rem;
+    line-height: .90;
+  } 
+
+    /* Loading: Hidden */
+  .willem-header.is--loading.is--hidden {
+    display: none;
+  }
+  
+  .willem-loader {
+    color: #201d1d;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .willem__h1 {
+    white-space: nowrap;
+    justify-content: center;
+    font-size: 9.5em;
+    font-weight: 700;
+    display: flex;
+    position: relative;
+  }
+  
+  .willem__h1-start {
+    justify-content: flex-end;
+    width: 3.95em;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .willem__h1-end {
+    justify-content: flex-start;
+    width: 3.95em;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .willem__letter {
+    display: block;
+    position: relative;
+  }
+  
+  .willem__letter-white.is--space {
+    margin-left: .25em;
+  }
+  
+  .willem-loader__box {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    display: flex;
+    position: relative;
+  }
+  
+  .willem-loader__box-inner {
+    justify-content: center;
+    align-items: center;
+    min-width: 1em;
+    height: 95%;
+    display: flex;
+    position: relative;
+  }
+  
+  .willem__growing-image {
+    justify-content: center;
+    align-items: center;
+    width: 0%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  .willem__growing-image-wrap {
+    width: 100%;
+    min-width: 1em;
+    height: 100%;
+    position: absolute;
+  }
+  
+  .willem__cover-image {
+    pointer-events: none;
+    object-fit: cover;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+.hero-subtitle{
+  font-size: 3.3rem;
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+  
+  .willem__cover-image-extra {
+    pointer-events: none;
+    object-fit: cover;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .willem__cover-image-extra.is--1 {
+    z-index: 3;
+  }
+  
+  .willem__cover-image-extra.is--2 {
+    z-index: 2;
+  }
+  
+  .willem__cover-image-extra.is--3 {
+    z-index: 1;
+  }
+  
+  .willem-header__content {
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 100dvh;
+    padding: 3em 1em 8em 0em;
+    display: flex;
+    position: relative;
+  }
+  
+  .willem-header__top {
+    width: 100%;
+    position: relative;
+  }
+  
+  .willem-header__bottom {
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    display: grid;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .willen-nav {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .willem-nav__start {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    display: flex;
+  }
+  
+  .willem-nav__end {
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+    display: flex;
+  }
+  
+  .willem-nav__cta {
+    display: flex;
+  }
+  
+  .willem-nav__links {
+    grid-column-gap: .5em;
+    grid-row-gap: .5em;
+    display: flex;
+  }
+  
+  .willem-nav__link {
+    color: inherit;
+    font-size: 1.3125em;
+    line-height: 1.3;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .willem__letter-white {
+    position: relative;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .willem__h1 {
+      font-size: 9em;
+      line-height: .90;
+    }
+  
+    .willem-nav__links {
+      grid-column-gap: 0em;
+      grid-row-gap: 0em;
+      flex-flow: column;
+    }
+  }
+  
+  @media(max-width: 767px) {
+    .leffft{
+      padding-left: 0.7rem;
+    }
+
+    .willem__h1 {
+      font-size: 5em;
+      font-weight: 600;
+    }
+
+    .noFlex{
+      display: grid;
+      height: 1rem;
+    }
+
+    .willem__size{
+      font-size: 2.5rem;
+      line-height: 5rem;
+    }
+  
+    .willem__size1{
+      font-size: 3.5rem;
+    }
+
+    .hero-subtitle{
+       font-size: 1.6rem;
+padding-top: 1rem;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+font-size: 1rem;
+      padding: 0.7rem 1.3rem;
+      transition: 0.2s;
+    }
+    
+    .info-card:active {
+      display: flex;
+      background-color: rgba(74, 50, 40, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transform: translateY(-0.3rem);
+    }
+
+
+
+    .info-card span {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+    }
+
+  
+
+    .fas{
+      transform: translateY(0.3rem);
+    }
+
+    .hero-info{
+      width: 35%;
+      padding-top: 1rem;
+
+      font-size: 0.9rem;
+    }
+
+    .boo{display: contents;
+    }
+ 
+
+    .CASA{
+      gap:0.65rem;
+      overflow: show;
+    }
+  
+    .titleContainerSmall{
+      padding-top: 2rem; display: flex; gap: 0.5rem;
+    }
+  
+    .willem-nav__start {
+      width: 65%;
+    }
+  
+    .willem-nav__end {
+      grid-column-gap: 1.5em;
+      grid-row-gap: 1.5em;
+      flex-flow: column;
+      width: 45%;
+    }
+
+
+    .gallery-wrap {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+      flex-direction: column;
+
+    }
+
+    .itemOverlay h3{
+      font-size: 2rem;
+    }
+
+    .itemOverlay p{
+      font-size: 1rem;
+      max-width: 19rem;
+      font-weight: 400;
+    }
+  }
+
+
+  
+  .osmo-credits__p {
+    pointer-events: auto;
+    text-align: center;
+    margin: 0;
+    font-family: PP Neue Montreal, Arial, sans-serif;
+    font-size: 1.125em;
+    font-weight: 500;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .osmo-credits__p-a {
+    color: #f4f4f4;
+
+ 
+    
+    .info-card {
+        display: grid;
+        align-items: center;
+        gap: var(--spacing-sm);
+        background-color: rgba(74, 50, 40, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .info-card i {
+        color: var(--accent);
+    }
+    
+    .info-card span {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.875rem;
+    }
+
+  }
+
+  

@@ -1,0 +1,424 @@
+/* =============================================
+   Casa Döner - Social Proof Section Styles
+   Mobile-First Responsive Design
+   ============================================= */
+
+/* CSS Variables - Color Palette */
+:root {
+  /* Primary Color - Warm Orange */
+  --primary: #e07b39;
+  --primary-light: #f09454;
+  --primary-dark: #c4652a;
+  
+  /* Secondary Color - Deep Brown */
+  --secondary: #4a3228;
+  --secondary-light: #5e4438;
+  
+  /* Accent Color - Tangerine */
+  --accent: #f5a623;
+  
+  /* Background Colors */
+  --bg-cream: #faf8f5;
+  --bg-light: #fefdfb;
+  --bg-warm: #f5f0e8;
+  
+  /* Text Colors */
+  --text-dark: #201d1d;
+  --text-muted: #6b5f5a;
+  --text-light: #ffffff;
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 8px rgba(74, 50, 40, 0.08);
+  --shadow-md: 0 4px 16px rgba(74, 50, 40, 0.12);
+  --shadow-lg: 0 8px 32px rgba(74, 50, 40, 0.16);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base - Mobile First */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Inter', 'PP Neue Montreal', Arial, sans-serif;
+  color: var(--text-dark);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Section Container */
+.social-proof {
+  background: var(--bg-cream);
+  padding: 48px 16px;
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-header .subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Grid Container - Mobile First (Single Column) */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Review Box - Base Styles */
+.box {
+  background: var(--bg-light);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), 
+              box-shadow var(--transition-smooth);
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Review Header */
+.review-header {
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.reviewer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Review Image Placeholder */
+.review-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: var(--bg-warm);
+  border: 1px dashed var(--primary-light);
+}
+
+.reviewer-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.review-source {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stars {
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* Review Text - Expandable */
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.review-text .full-text {
+  display: none;
+}
+
+.review-text.expanded .preview {
+  display: none;
+}
+
+.review-text.expanded .full-text {
+  display: inline;
+}
+
+.review-text.short-review {
+  font-style: normal;
+}
+
+/* Read More Button */
+.read-more-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 8px;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.read-more-btn:hover {
+  color: var(--primary-dark);
+}
+
+.read-more-btn::after {
+  content: '→';
+  transition: transform var(--transition-fast);
+}
+
+.read-more-btn.expanded::after {
+  transform: rotate(90deg);
+}
+
+/* Stats Box - Special Styling */
+.stats-box {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--bg-cream);
+  text-align: center;
+  margin: 0 0 2rem 0;
+  max-width: 1400px;
+}
+
+.stats-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(224, 123, 57, 0.35);
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* =============================================
+ TABLET BREAKPOINT (600px+)
+ ============================================= */
+@media (min-width: 600px) {
+  .social-proof {
+      padding: 64px 24px;
+  }
+
+  .section-header h2 {
+      font-size: 2rem;
+  }
+
+  .container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+  }
+  .box {
+    padding: 28px;
+    transition: padding 0.3s ease;
+  }
+  
+  /* Featured box spans 2 columns */
+  .box.featured {
+      grid-column: span 2;
+  }
+
+  /* Tall boxes span 2 rows */
+  .box.tall {
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .box.tall .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .content1 {
+    flex: 1;
+    display: flex;
+    gap: 3rem;
+  }
+
+  .textContainer{
+    max-width: 50%;
+  }
+
+  .box.tall .review-text {
+      flex: 1;
+  }
+
+  /* Wide stats box spans 2 columns */
+  .box.wide {
+      grid-column: span 2;
+  }
+
+  .stats-grid {
+      gap: 48px;
+  }
+
+  .stat-number {
+      font-size: 2.5rem;
+  }
+}
+
+/* =============================================
+ DESKTOP BREAKPOINT (900px+)
+ ============================================= */
+@media (min-width: 900px) {
+  .social-proof {
+      padding: 80px 32px;
+  }
+
+  .section-header {
+      margin-bottom: 48px;
+  }
+
+  .section-header h2 {
+      font-size: 2.25rem;
+  }
+
+  .container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+  }
+
+  .box {
+      padding: 32px;
+      border-radius: 20px;
+  }
+
+  /* Wide stats box spans all 3 columns */
+  .box.wide {
+      grid-column: span 3;
+  }
+
+  .stats-grid {
+      gap: 72px;
+  }
+
+  .stat-number {
+      font-size: 3rem;
+  }
+
+  .stat-label {
+      font-size: 0.95rem;
+  }
+}
+
+/* =============================================
+ LARGE DESKTOP (1100px+)
+ ============================================= */
+@media (min-width: 1100px) {
+
+
+  .reviewer-name {
+      font-size: 1.05rem;
+  }
+
+  .review-text {
+      font-size: 1rem;
+  }
+}
+
+/* =============================================
+ ACCESSIBILITY & INTERACTIONS
+ ============================================= */
+
+/* Focus States */
+.read-more-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .box,
+  .read-more-btn,
+  .read-more-btn::after {
+      transition: none;
+  }
+  
+  .box:hover {
+      transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .social-proof {
+      background: white;
+      padding: 20px;
+  }
+  
+  .box {
+      box-shadow: none;
+      border: 1px solid #ddd;
+      page-break-inside: avoid;
+  }
+  
+  .review-text .preview {
+      display: none !important;
+  }
+  
+  .review-text .full-text {
+      display: inline !important;
+  }
+  
+  .read-more-btn {
+      display: none;
+  }
+}
