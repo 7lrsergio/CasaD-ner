@@ -303,7 +303,7 @@
   
   .mobile-info i {
     color: #e07b39;
-    margin-right: 8px;
+    /* margin-right: 8px; */
   }
   
   /* Social links (in mobile nav) */
@@ -311,6 +311,7 @@
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    justify-content: center;
   }
   
   .social-links a {
@@ -405,6 +406,7 @@
     display: flex;
     position: relative;
     font-family: "Monomaniac One", sans-serif;
+
   }
   
   .willem__h1-start {
@@ -413,10 +415,11 @@
     display: flex;
     overflow: hidden;
   }
-  
+
   .willem__h1-end {
     justify-content: flex-start;
     width: 3.95em;
+    /* height: 20rem; */
     display: flex;
     overflow: hidden;
   }
@@ -438,7 +441,8 @@
   /* Size variants */
   .willem__size {
     font-size: 7.5rem;
-    line-height: 7.5rem;
+    line-height: 11.5rem;
+    
   }
   
   .willem__size1 {
@@ -690,6 +694,7 @@
   
     .willem__size  { font-size: 2.5rem; line-height: 5rem; }
     .willem__size1 { font-size: 3.5rem; }
+
   
     .hero-subtitle {
       font-size: 1.6rem;
@@ -749,6 +754,7 @@
     display: grid;
     box-sizing: border-box;
   }
+
   
   /* Gallery flex container */
   .gallery-wrap {
