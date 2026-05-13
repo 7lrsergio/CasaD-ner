@@ -99,7 +99,8 @@ function addWillemAccent3(tl, container) {
     }
   
     if (box.length) {
-      tl.fromTo(box, { width: "0em" }, { width: "1em", duration: 1.2 }, "< 1.2");
+      const boxWidth = window.matchMedia("(min-width: 768px)").matches ? "1em" : "0.5em";
+      tl.fromTo(box, { width: "0em" }, { width: boxWidth, duration: 1.2 }, "< 1.2");
     }
   
     if (growingImage.length) {
