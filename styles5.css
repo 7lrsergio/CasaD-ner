@@ -325,7 +325,7 @@ body {
 .menu-btn span {
   width: 25px;
   height: 3px;
-  background: white;
+  background: #2d1f1a;
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -441,7 +441,6 @@ body {
   .nav-links a {
     font-family: var(--font-body);
     font-size: 1rem;
-    color: white;
   }
 
   .header.scrolled .nav-links a { color: var(--text-dark); }

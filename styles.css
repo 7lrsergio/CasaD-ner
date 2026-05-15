@@ -111,6 +111,7 @@
     overscroll-behavior: none;
     min-height: 100%;
     font-family: "Spectral SC", serif;
+
   }
   
   a {
@@ -438,7 +439,8 @@
   /* Size variants */
   .willem__size {
     font-size: 7.5rem;
-    line-height: 9.5rem;
+    line-height: 12rem;
+    overflow:visible;
   }
   
   .willem__size1 {
@@ -460,7 +462,7 @@
   .willem-loader__box-inner {
     justify-content: center;
     align-items: center;
-    min-width: 0.5em;
+    min-width: 1em;
     height: 95%;
     display: flex;
     position: relative;
@@ -570,6 +572,7 @@
     /* font-family: "Quintessential", serif; */
     font-weight: 400;
     font-style: normal;
+    color:rgba(200, 200, 200, 0)
   }
   
   /* Address / hours row */
@@ -590,6 +593,7 @@
     color: #f4f4f4;
     font-size: 1rem;
     font-weight: 200;
+    color:rgba(200, 200, 200, 0)
   }
   
   /* CTA buttons row */
@@ -650,6 +654,7 @@
       display: flex;
       position: relative;
     }
+
   }
   
   /* Mobile hero */
@@ -680,7 +685,7 @@
       justify-content: start;
     } */
 
-
+    
 
   
     .noFlex {
@@ -693,13 +698,14 @@
   
     .hero-subtitle {
       font-size: 1.6rem;
-      padding-top: 4rem;
+      padding-top: 1rem;
     }
   
     .hero-info {
       width: 35%;
       padding-top: 1rem;
       font-size: 0.9rem;
+      color:rgba(200, 200, 200, 0)
     }
   
     .CASA {
@@ -733,6 +739,11 @@
     .info-card span {
       color: rgba(255, 255, 255, 0.9);
       font-size: 1rem;
+    }
+
+
+    .willem-loader__box-inner {
+      min-width: 0.5em;
     }
   }
   
@@ -865,6 +876,10 @@
   .item-3 { background-image: url(img/fav-wrap.png); }
   .item-4 { background-image: url(img/fav-hammus.png); }
   .item-5 { background-image: url(img/fav-lamb.png); }
+
+  .favClick {
+    display: none;
+  }
   
   /* Mobile: stack vertically */
   @media (max-width: 767px) {
@@ -879,6 +894,13 @@
       font-size: 1rem;
       max-width: 19rem;
       font-weight: 400;
+    }
+
+    .favClick {
+      display: grid;
+      font-size: 1.2rem;
+      color: #919090;
+      justify-content: center;
     }
   }
   
@@ -1042,6 +1064,8 @@
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    font-family: "Noto Serif Malayalam", serif;
+
   }
   
   .stat-number {
@@ -1131,6 +1155,52 @@
      06. FOOTER
      ============================================================================= */
   
+  /* Catering section */
+  .catering-section {
+    background: #1a1a1a;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .catering-content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .catering-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #e07b39;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .catering-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 16px;
+  }
+
+  .catering-desc {
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .catering-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  @media (min-width: 600px) {
+    .catering-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
   /* CTA banner above footer */
   .footer-cta {
     background: linear-gradient(135deg, #e07b39, #c4652a);
@@ -1215,10 +1285,11 @@
   
   /* Brand column */
   .footer-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: "Monomaniac One", sans-serif;
     font-size: 1.5rem;
     color: white;
     margin-bottom: 10px;
+    font-weight: 900;
   }
   
   .footer-logo span {
